@@ -14,7 +14,10 @@ $langUrl=isset($_REQUEST['lang'])?"?lang=".$_REQUEST['lang']:'';
 
 function cyr_script_enqueue(){
 	wp_enqueue_style("cyr_style",get_template_directory_uri()."/css/style.css",array(),"1.0.0","all");
-	wp_enqueue_script("cyr_script_1920",get_template_directory_uri()."/js/script.js",array('jquery'),"1.0.0");
+        //wp_enqueue_style("cyr_bootstrap",get_template_directory_uri()."/bootstrap/css/bootstrap.min.css",array(),"1.0.0","all");
+	wp_enqueue_script("cyr_script",get_template_directory_uri()."/js/script.js",array('jquery'),"1.0.0");
+        //wp_enqueue_script("cyr_bootstrap_tether","https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js",array('cyr_script'),"1.0.0");
+        //wp_enqueue_script("cyr_bootstrap",get_template_directory_uri()."/bootstrap/js/bootstrap.min.js",array('cyr_bootstrap_tether'),"1.0.0");
 	if(isHe())wp_enqueue_style("cyr_rtl",get_template_directory_uri()."/css/rtl.css",array(),"1.0.0","all");
 }
 
@@ -171,13 +174,19 @@ function setLillyVars(){
 	global $lilly_login_form_class;
 	
 	$lilly_password=isset($_REQUEST['lilly_password'])?$_REQUEST['lilly_password']:(isset($_COOKIE['lilly_password'])?$_COOKIE['lilly_password']:'');
+        $lilly_email=isset($_REQUEST['lilly_email'])?$_REQUEST['lilly_email']:(isset($_COOKIE['lilly_email'])?$_COOKIE['lilly_email']:'');
 
-	if($lilly_password){
+	if($lilly_password&&$lilly_email){
 		if(isset($page_id)&&$page_id&&$page_id>0){
 			$meta_query = array(
 				array(
 					'key'=> 'password',
 					'value' => $lilly_password,
+					'compare' => '='
+				),
+                                array(
+					'key'=> 'email',
+					'value' => $lilly_email,
 					'compare' => '='
 				)
 			);
@@ -185,10 +194,11 @@ function setLillyVars(){
 		else $meta_query=array();
 		$loop = new WP_Query( array( 'post_type' => 'password', 'posts_per_page' => -1, 'meta_query' => $meta_query, 'orderby' => 'date', 'order' => 'DESC' ) );
 		while ( $loop->have_posts() ) : $loop->the_post();
-            if(get_field('password')==$lilly_password){
+                        if(get_field('password')==$lilly_password&&get_field('email')==$lilly_email){
 				$lilly_login_error='';
 				$lilly_login_form_class='inactive';
 				setcookie('lilly_password', $lilly_password, time()+86400*30, '/', $_SERVER["HTTP_HOST"]);
+                                setcookie('lilly_email', $lilly_email, time()+86400*30, '/', $_SERVER["HTTP_HOST"]);
 			}
 		endwhile; 
 		
