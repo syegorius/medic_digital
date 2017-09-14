@@ -1,4 +1,8 @@
-
+    <div id="footer">
+        <img src="<?php echo get_template_directory_uri() ?>/img/logo_footer.png" alt="" title="" />
+        &copy; 2017 מולי רפואה מקוונת בע"מ - כל הזכויות שמורות
+    </div>
+</div>
 <?php wp_footer(); ?>
 <form class="dif abs <?php echo get_lilly_login_form_class() ?>" id="warning" method="post" action="/">
 	<div class="w">

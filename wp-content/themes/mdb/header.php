@@ -10,37 +10,23 @@
 <?php wp_head(); ?>
 </head>
 <body>
-        
+    <div id="all" class="rel">
         <div id="header">
             <div class="logo left">
                 <a href="/"><img src="<?php echo $get_template_directory_uri ?>/img/logo_sm.png" title="" alt="" /></a>
             </div>
-            <div class="rd left">
-                <div class="left"><img src="<?php echo $get_template_directory_uri ?>/img/rd.png" title="" alt="Respiratory Digital" /></div>
-                <div class="right">מגזין רפואי בנושא מחלות<br/> מערכת הנשימה</div>
-                <div class="clear"></div>
-            </div>
-            
-            <div class="right menu">
-                
+
+
+            <div class="right menu" onclick="showHideArticleLinks()">
+
             </div>
             <div class="right az">
                 <div class="az_title">בשיתוף חברת</div>
                 <div class="az_logo"><img src="<?php echo $get_template_directory_uri ?>/img/az_logo_sm.png" class="imargin" title="" alt="" /></div>
             </div>
-        </div>
-        <div id="top" class="rel">
-            <img src="<?php echo $get_template_directory_uri ?>/img/bg.jpg" class="imargin bg" title="" alt="" />
-            <div class="article_links rabs">
-                <?php for($i=0; $i<5; $i++): ?>
-                    <div class="article_link">
-                        <div>
-                            <div class="red_bg right">מחקר</div><a href="#">מעכב DPP4 לינגליפטין מוריד רמת סוכר לאחר ארוחה ומשפר תפקוד של תאי B בחולי סוכרת</a>
-                            <div class="clear"></div>
-                        </div>
-                        <div class="right article_link_note">ד״ר ישראל ישראלי</div>
-                        <div class="clear"></div>
-                    </div>
-                <?php endfor; ?>
+            <div class="rd left">
+                <div class="left"><img src="<?php echo $get_template_directory_uri ?>/img/rd.png" title="" alt="Respiratory Digital" /></div>
+                <div class="right">מגזין רפואי בנושא מחלות<br/> מערכת הנשימה</div>
+                <div class="clear"></div>
             </div>
         </div>

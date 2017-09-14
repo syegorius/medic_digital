@@ -1,3 +1,3 @@
 <?php
 
-include "homepage.php";
+//include "page.php";

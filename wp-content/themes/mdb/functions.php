@@ -114,7 +114,7 @@ function file_to_download(){
 
 function my_posts_where( $where ) {
 	
-	$where = str_replace("meta_key = 'pages_%", "meta_key LIKE 'pages_%", $where);
+	$where = str_replace("meta_key = 'master_pages_%", "meta_key LIKE 'master_pages_%", $where);
 
 	return $where;
 }

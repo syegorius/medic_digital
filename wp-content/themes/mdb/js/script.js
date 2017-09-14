@@ -12,7 +12,7 @@ $(document).ready(function(){
 		pw=$(window).width();
 		ph=$(window).height();
 				
-                setHeaderSize()                
+                setHeaderSize();           
 		/*setHeaderHTML()
 		setBodyHTML()
 		
@@ -112,14 +112,19 @@ function setHeaderSize(){
     $('.logo img').prop("src",pathToImgFolder+"/img/logo_sm.png");
     $('.az').css({width:172,margin:0})
     $('.az_logo img').prop("src",pathToImgFolder+"/img/az_logo_sm.png");
-    $('.rd').css({width:pw-$('#header .logo').outerWidth()-$('#header .az').outerWidth()-$('#header .menu').outerWidth()-40+5})
+    $('.rd img').prop("src",pathToImgFolder+"/img/rd.png");
+    $('.rd').css({width:pw-$('#header .logo').outerWidth()-$('#header .az').outerWidth()-$('#header .menu').outerWidth()-40+1})
+    $('.page_details').css({top:($('#top').outerHeight()-$('.page_details').outerHeight())/2,left:($('#top').outerWidth()-$('.page_details').outerWidth())/2})
+    $('.article_links').addClass("abs")
     
     if(isMobile()){
 	$('body').addClass("responsive");
         $('.logo img').prop("src",pathToImgFolder+"/img/logo_xs.png");
         $('.az_logo img').prop("src",pathToImgFolder+"/img/az_logo_xs.png");
-        //alert(pw+"/"+$('#header .logo').outerWidth()+"/"+$('#header .menu').outerWidth())
+        $('.rd img').prop("src",pathToImgFolder+"/img/rd_xs.png");
         $('.az').css({width:pw-$('#header .logo').outerWidth()-$('#header .menu').outerWidth(),margin:'0 0 0 -10px'})
+        $('.page_details').css({top:($('#top').outerHeight()-$('.page_details').outerHeight())/2,left:($('#top').outerWidth()-$('.page_details').outerWidth())/2})
+        $('.article_links').removeClass("abs")
     }
     
     if($('#wpadminbar').size()>0){
@@ -128,4 +133,9 @@ function setHeaderSize(){
     else{
         $('.dif').css({top:0})
     }
+}
+
+function showHideArticleLinks(){
+    if($('.article_links').hasClass('inactive'))$('.article_links').removeClass('inactive')
+    else $('.article_links').addClass('inactive')
 }

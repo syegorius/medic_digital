@@ -1052,6 +1052,7 @@ class WP_Query {
 		 *
 		 * @param WP_Query &$this The WP_Query instance (passed by reference).
 		 */
+                
 		do_action_ref_array( 'parse_query', array( &$this ) );
 	}
 
@@ -3245,7 +3246,7 @@ class WP_Query {
 	public function query( $query ) {
 		$this->init();
 		$this->query = $this->query_vars = wp_parse_args( $query );
-		return $this->get_posts();
+                return $this->get_posts();
 	}
 
 	/**
