@@ -547,6 +547,9 @@ box-shadow: 0px 0px 50px -15px rgba(0,0,0,0.75);
     background-position: center center;
     cursor:pointer;
 }
+.responsive #article .article_social div.left{
+    float:right;
+}
 #article .article_social div.left a{
     display: block;
     height:28px;
