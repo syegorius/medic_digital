@@ -216,3 +216,87 @@ function get_lilly_login_error(){
 	global $lilly_login_error;
 	return $lilly_login_error;
 }
+
+function get_left_side_articles($page_ids=false){
+    $html = '<div class="article_links abs">';
+    
+    if($page_ids){
+        $meta_query = array(
+            array(
+                'key' => 'master_pages_%_page', // this should be the first sub-field
+                'value' => $page_ids,
+                'compare' => 'in'
+            )
+        );
+    }
+    else $meta_query=array();
+    
+    $loop = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => -1, 'meta_query' => $meta_query, 'orderby' => 'date', 'order' => 'DESC' ) );
+    /*if (current_user_can('administrator')){
+        global $wpdb;
+        echo "<pre>";
+        print_r($wpdb->queries);
+        echo "</pre>";
+    }*/
+    while ( $loop->have_posts() ) : $loop->the_post();
+        
+        $html.='<div class="article_link">
+                    <div>
+                        <div class="red_bg right">'.get_field("reference").'</div><a href="'.get_the_permalink().'">'.get_the_title().'</a>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="right article_link_note">'.get_field("author").'</div>
+                    <div class="clear"></div>
+                </div>';
+    endwhile;
+    wp_reset_query();
+    return $html .= '</div>';
+}
+
+
+add_action('admin_menu', 'medic_create_menu');
+
+function medic_create_menu(){
+    add_menu_page('Medic Settings', 'Medic Settings', 'administrator', 'medic-settings', 'medic_settings_page', 'dashicons-admin-settings', 62);/*plugins_url('/images/icon.png', __FILE__)*/
+    add_action('admin_init', 'register_medic_settings');
+}
+
+function register_medic_settings(){
+    register_setting('medic-settings-group', 'dfp_id');
+}
+
+function medic_settings_page(){
+    post_medic_settings();
+
+    $checked="";
+    
+    echo '<div class="wrap">
+        <h2>Medic Digital DFP Settings</h2>
+        <form method="post" action="" enctype="multipart/form-data">
+            <table class="form-table">
+                <tr valign="top">
+                    <th scope="row">DFP ID</th>
+                    <td><input type="text" name="dfp_id" value="'.get_option('dfp_id').'" /></td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">Website e-mail</th>
+                    <td><input type="text" name="website_email" value="'.get_option('website_email').'" /></td>
+                </tr>
+                <tr valign="top">
+                    <th scope="row">Website phone</th>
+                    <td><input type="text" name="website_phone" value="'.get_option('website_phone').'" /></td>
+                </tr>
+            </table>
+            <input type="hidden" name="medic-settings" value="true" />
+            <input type="submit" class="button-primary" value="Save changes"/>
+        </form>
+    </div>';
+}
+
+function post_medic_settings(){
+    if (!isset($_POST['medic-settings']))return;
+
+    update_option('dfp_id',isset($_POST['dfp_id'])&&isset($_POST['medic-settings'])?$_POST['dfp_id']:0);//get_option($option_name)
+    update_option('website_email',isset($_POST['website_email'])&&isset($_POST['medic-settings'])?$_POST['website_email']:0);//get_option($option_name)
+    update_option('website_phone',isset($_POST['website_phone'])&&isset($_POST['medic-settings'])?$_POST['website_phone']:0);//get_option($option_name)
+}

@@ -8,6 +8,27 @@
 <?php $get_template_directory_uri=get_template_directory_uri(); ?>
 <script type="text/javascript">var currentLang="<?php //echo ICL_LANGUAGE_CODE; ?>en",pathToImgFolder="<?php echo $get_template_directory_uri; ?>"</script>
 <?php wp_head(); ?>
+
+
+
+<script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+ 
+<script>
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/50454183/MedicDigital-Mobile', [646, 160], 'div-gpt-ad-<?php echo get_option('dfp_id') ?>-0').addService(googletag.pubads());
+    googletag.defineSlot('/50454183/MedicDigital-Splash', [646, 540], 'div-gpt-ad-<?php echo get_option('dfp_id') ?>-1').addService(googletag.pubads());
+    googletag.defineSlot('/50454183/MedicDigital-stripe', [160, 600], 'div-gpt-ad-<?php echo get_option('dfp_id') ?>-2').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+  });
+</script>
+
+
+
 </head>
 <body>
     <div id="all" class="rel">

@@ -139,3 +139,24 @@ function showHideArticleLinks(){
     if($('.article_links').hasClass('inactive'))$('.article_links').removeClass('inactive')
     else $('.article_links').addClass('inactive')
 }
+
+function print(elem){
+    var mywindow = window.open('', 'PRINT', 'height=400,width=600');
+
+    mywindow.document.write('<html><head><title>' + document.title  + '</title>');
+    mywindow.document.write('</head><body >');
+    mywindow.document.write('<h1>' + document.title  + '</h1>');
+    var $e=$(elem).clone();
+    $e.find('.article_social').remove();
+    $e.find('.ad').remove();
+    mywindow.document.write($e.html());
+    mywindow.document.write('</body></html>');
+
+    mywindow.document.close(); // necessary for IE >= 10
+    mywindow.focus(); // necessary for IE >= 10*/
+
+    mywindow.print();
+    mywindow.close();
+
+    return true;
+}

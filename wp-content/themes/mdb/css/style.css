@@ -129,6 +129,9 @@ overflow-x:hidden;
     color:#d2232a;
 }
 .red_bg{
+    padding-left:6px;
+    padding-right:6px;
+    color:#fff;
     background-color:#d2232a;
 }
 .black{
@@ -438,3 +441,115 @@ box-shadow: 0px 0px 50px -15px rgba(0,0,0,0.75);
     margin:0 auto 5px;
 }
 /*footer*/
+
+/*article*/
+#article{
+    margin-top:-345px;
+    background-color:#fff;
+    z-index:2;
+}
+.responsive #article{
+    margin-top:0 !important;
+}
+#article .red_bg{
+    font-size:17px;
+    line-height: 25px;
+    
+}
+.responsive #article .red_bg{
+    font-size:15px;
+    line-height: 24px;
+}
+#article .article_title{
+    padding: 30px 0 15px;
+    line-height: 58px;
+    color:#040404;
+    font-size:48px;
+}
+.responsive #article .article_title{
+    padding: 14px 0 10px;
+    line-height: 32px;
+    font-size:28px;
+}
+#article .article_description{
+    line-height: 27px;
+    color:#040404;
+    font-size:22px;
+    font-weight:bold;
+}
+#article .article_description{
+    line-height: 23px;
+    font-size:18px;
+}
+#article .a_ad_s{
+    margin:25px 0 20px;
+    padding:10px 0 7px;
+    color:#666;
+    border-top:1px solid #666;
+    border-bottom:1px solid #666;
+}
+#article .a_ad_s .right{
+    width:471px;
+}
+#article .a_ad_s .article_social{
+    padding:8px 5px;
+    width:184px;
+}
+.responsive #article .a_ad_s .right, .responsive #article .a_ad_s .article_social{
+    width:100%;
+}
+.responsive #article .a_ad_s .article_social{
+    padding-right:0;
+}
+#article .a_ad_s .article_author{
+    font-size:15px;
+    line-height:25px;
+    font-weight:bold;
+}
+#article .a_ad_s .article_author_description{
+    font-size:13px;
+    line-height: 19px;
+}
+#article .article_content{
+    color:#020202;
+    font-size:18px;
+    line-height: 25px;
+}
+.responsive #article .article_content{
+    color:#020202;
+    font-size:17px;
+    line-height: 24px;
+}
+#article .article_references{
+    padding-bottom:175px;
+    font-size:12px;
+    line-height: 14px;
+}
+#article .article_references div{
+    padding-bottom:10px;
+    text-align:left;
+}
+#article div.article_references_title{
+    margin:60px 0 20px;
+    height:33px;
+    font-size:22px;
+    line-height:33px;
+    text-align: right;
+    border-bottom:1px solid #666;
+}
+#article .article_social div.left{
+    margin:0 8px;
+    width:28px;
+    height:28px;
+    background-color: #cbcbcb;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    cursor:pointer;
+}
+#article .article_social div.left a{
+    display: block;
+    height:28px;
+    width:28px;
+}
+/*article*/
