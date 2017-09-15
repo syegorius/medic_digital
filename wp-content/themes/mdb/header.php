@@ -22,6 +22,12 @@
     googletag.defineSlot('/50454183/MedicDigital-Mobile', [646, 160], 'div-gpt-ad-<?php echo get_option('dfp_id') ?>-0').addService(googletag.pubads());
     googletag.defineSlot('/50454183/MedicDigital-Splash', [646, 540], 'div-gpt-ad-<?php echo get_option('dfp_id') ?>-1').addService(googletag.pubads());
     googletag.defineSlot('/50454183/MedicDigital-stripe', [160, 600], 'div-gpt-ad-<?php echo get_option('dfp_id') ?>-2').addService(googletag.pubads());
+    
+    <?php
+        $title_words=preg_split("/[^\p{Hebrew}a-z]+/iu",get_the_title());
+        foreach($title_words as $word)echo "googletag.pubads().setTargeting('title','".$word."');\r\n";
+    ?>
+    
     googletag.pubads().enableSingleRequest();
     googletag.enableServices();
   });
