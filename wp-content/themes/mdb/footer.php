@@ -4,7 +4,7 @@
     </div>
 </div>
 <?php wp_footer(); ?>
-<form class="dif abs <?php echo get_lilly_login_form_class() ?>" id="warning" method="post" action="/">
+<form class="dif abs <?php echo get_lilly_login_form_class() ?>" id="warning" method="post" action="<?php echo (isset($_SERVER['HTTPS']) ? "https://" : "http://") .$_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI]; ?>">
 	<div class="w">
 		<div class="login_form_logo"><img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="" class="imargin" /></div>
 		<div class="center rtl caution black">

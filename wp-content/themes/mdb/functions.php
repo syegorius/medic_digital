@@ -115,6 +115,7 @@ function file_to_download(){
 function my_posts_where( $where ) {
 	
 	$where = str_replace("meta_key = 'master_pages_%", "meta_key LIKE 'master_pages_%", $where);
+        $where = str_replace("meta_key = 'articles_%", "meta_key LIKE 'articles_%", $where);
 
 	return $where;
 }
@@ -172,7 +173,7 @@ $lilly_login_form_class='active';
 function setLillyVars(){
 	global $lilly_login_error;
 	global $lilly_login_form_class;
-	
+	//echo $_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI];exit;
 	$lilly_password=isset($_REQUEST['lilly_password'])?$_REQUEST['lilly_password']:(isset($_COOKIE['lilly_password'])?$_COOKIE['lilly_password']:'');
         $lilly_email=isset($_REQUEST['lilly_email'])?$_REQUEST['lilly_email']:(isset($_COOKIE['lilly_email'])?$_COOKIE['lilly_email']:'');
 
@@ -199,9 +200,11 @@ function setLillyVars(){
 				$lilly_login_form_class='inactive';
 				setcookie('lilly_password', $lilly_password, time()+86400*30, '/', $_SERVER["HTTP_HOST"]);
                                 setcookie('lilly_email', $lilly_email, time()+86400*30, '/', $_SERVER["HTTP_HOST"]);
+				
+				//header('Location: '.(isset($_SERVER['HTTPS']) ? "https" : "http") . "://".$_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI]);
 			}
 		endwhile; 
-		
+		wp_reset_query();
 		if(!isset($_REQUEST['submit']))$lilly_login_error='';
 	}
 	else $lilly_login_error='';
@@ -217,7 +220,36 @@ function get_lilly_login_error(){
 	return $lilly_login_error;
 }
 
-function get_left_side_articles($page_ids=false){
+function get_left_side_articles($hover=""){
+    
+    $articles=get_field("articles");
+    
+    if(is_array($articles)){
+        $html = '<div class="article_links abs">';
+        foreach($articles as $k=>$v){
+            foreach($v as $article){
+                $article_meta=get_post_meta($article->ID);
+                $image=wp_get_attachment_metadata( $article_meta['image'][0] );
+                $uf=wp_upload_dir();
+                //var_dump($article);exit;
+                $html.='<div class="article_link '.$hover.'">
+                        <div>
+                            <div class="red_bg right">'.$article_meta['reference'][0].'</div><a href="'.get_post_permalink($article->ID).'">'.$article->post_title.'</a>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="right article_link_note">'.$article_meta['author'][0].'</div>
+                        <input type="hidden" name="image" value="'.$uf['baseurl'].'/'.$image['file'].'" />
+                        <div class="clear"></div>
+                    </div>';
+
+            }
+        }
+        $html.='</div>';
+    }
+    return $html;
+}
+
+function get_left_side_articles_($page_ids=false){
     $html = '<div class="article_links abs">';
     
     if($page_ids){
@@ -252,7 +284,6 @@ function get_left_side_articles($page_ids=false){
     wp_reset_query();
     return $html .= '</div>';
 }
-
 
 add_action('admin_menu', 'medic_create_menu');
 
@@ -299,4 +330,30 @@ function post_medic_settings(){
     update_option('dfp_id',isset($_POST['dfp_id'])&&isset($_POST['medic-settings'])?$_POST['dfp_id']:0);//get_option($option_name)
     update_option('website_email',isset($_POST['website_email'])&&isset($_POST['medic-settings'])?$_POST['website_email']:0);//get_option($option_name)
     update_option('website_phone',isset($_POST['website_phone'])&&isset($_POST['medic-settings'])?$_POST['website_phone']:0);//get_option($option_name)
+}
+
+function get_body_header(){
+    $sbl=get_field('spansored_by_logo');
+    return '<div id="header">
+            <div class="logo left">
+                <a href="/"><img src="'.get_template_directory_uri().'/img/logo_sm.png" title="" alt="" /></a>
+            </div>
+
+
+            <div class="right menu" onclick="showHideArticleLinks()">
+
+            </div>
+            <div class="right az">
+                <div class="az_title">בשיתוף חברת</div>
+                <div class="az_logo"><img src="'.$sbl['url'].'" class="imargin" title="" alt="" /></div>
+            </div>
+            <div class="rd left">
+                <div class="left red">
+                    <!--<img src="'.get_template_directory_uri().'/img/rd.png" title="" alt="" />-->
+                    <div><a class="red" href="'. get_the_permalink().'">'.get_the_title().'</a></div>
+                </div>
+                <div class="right">'.get_the_content().'</div>
+                <div class="clear"></div>
+            </div>
+        </div>';
 }

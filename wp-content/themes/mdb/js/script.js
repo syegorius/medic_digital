@@ -12,7 +12,8 @@ $(document).ready(function(){
 		pw=$(window).width();
 		ph=$(window).height();
 				
-                setHeaderSize();           
+                setHeaderSize();
+                setHeaderActions();
 		/*setHeaderHTML()
 		setBodyHTML()
 		
@@ -111,7 +112,7 @@ function setHeaderSize(){
     $('body').removeClass("responsive");
     $('.logo img').prop("src",pathToImgFolder+"/img/logo_sm.png");
     $('.az').css({width:172,margin:0})
-    $('.az_logo img').prop("src",pathToImgFolder+"/img/az_logo_sm.png");
+    //$('.az_logo img').prop("src",pathToImgFolder+"/img/az_logo_sm.png");
     $('.rd img').prop("src",pathToImgFolder+"/img/rd.png");
     $('.rd').css({width:pw-$('#header .logo').outerWidth()-$('#header .az').outerWidth()-$('#header .menu').outerWidth()-40+1})
     $('.page_details').css({top:($('#top').outerHeight()-$('.page_details').outerHeight())/2,left:($('#top').outerWidth()-$('.page_details').outerWidth())/2})
@@ -120,7 +121,7 @@ function setHeaderSize(){
     if(isMobile()){
 	$('body').addClass("responsive");
         $('.logo img').prop("src",pathToImgFolder+"/img/logo_xs.png");
-        $('.az_logo img').prop("src",pathToImgFolder+"/img/az_logo_xs.png");
+        //$('.az_logo img').prop("src",pathToImgFolder+"/img/az_logo_xs.png");
         $('.rd img').prop("src",pathToImgFolder+"/img/rd_xs.png");
         $('.az').css({width:pw-$('#header .logo').outerWidth()-$('#header .menu').outerWidth(),margin:'0 0 0 -10px'})
         $('.page_details').css({top:($('#top').outerHeight()-$('.page_details').outerHeight())/2,left:($('#top').outerWidth()-$('.page_details').outerWidth())/2})
@@ -133,6 +134,22 @@ function setHeaderSize(){
     else{
         $('.dif').css({top:0})
     }
+}
+
+function setHeaderActions(){
+    setTop($('.article_link.hover:first'))
+    $('.article_link.hover').each(function(){
+        $(this).bind('mouseover',function(){
+            setTop($(this))
+        })
+    })
+}
+
+function setTop($e){
+    $('#top img').prop("src",$e.find('input[name="image"]').val())
+    $('#top .page_reference').html($e.find('.red_bg').html());
+    $('#top .page_title').html($e.find('a').html());
+    iMargin($('#top img'),"a")
 }
 
 function showHideArticleLinks(){

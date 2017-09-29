@@ -14,6 +14,20 @@
   src: url("../css/fonts/DinPro Reg/DINPro_Reg.otf") format('truetype');
 }
 
+@font-face {
+  font-family: 'Officina';
+  font-style: normal;
+  font-weight: 600;
+  src: url("../css/fonts/itc-officina-serif-std-bold.otf") format('truetype');
+}
+
+@font-face {
+  font-family: 'Officina';
+  font-style:  italic;
+  font-weight: bold;
+  src: url("../css/fonts/itc-officina-serif-std-bold-italic.otf") format('truetype');
+}
+
 div,p,input,textarea,img,ul,li,h1,h2,h3,h4,h5,h6,header,footer,button,html,body,span{
 	display:block;
 	margin:0px;
@@ -24,6 +38,7 @@ div,p,input,textarea,img,ul,li,h1,h2,h3,h4,h5,h6,header,footer,button,html,body,
 	text-align:right;
         font-family:'Open Sans Hebrew', sans-serif;
 }
+#wpadminbar a, #wpadminbar span{display:inline;}
 iframe{
 	border:0px;
 	border:none;
@@ -154,6 +169,7 @@ box-shadow: 0px 0px 50px -15px rgba(0,0,0,0.75);
 	overflow:hidden;
 }
 .dif{
+	position:fixed;
 	width:100%;
 	padding:125px 0 100%;
 	color:#445565;
@@ -272,6 +288,25 @@ box-shadow: 0px 0px 50px -15px rgba(0,0,0,0.75);
     margin:-5px 0 -5px;
     line-height:25px;
     font-size:19px;
+}
+.rd .left div{
+    margin-top:-10px;
+    font-size: 50px;
+    line-height: 60px;
+    font-family:'Officina', sans-serif;
+    font-weight:bold;
+}
+@media screen and (max-width:500px){
+	.rd .left div{font-size: 45px;}
+}
+@media screen and (max-width:450px){
+	.rd .left div{font-size: 40px;}
+}
+@media screen and (max-width:400px){
+	.rd .left div{font-size: 35px;}
+}
+@media screen and (max-width:350px){
+	.rd .left div{font-size: 30px;}
 }
 .rd{
     color:#030303;
@@ -520,6 +555,12 @@ box-shadow: 0px 0px 50px -15px rgba(0,0,0,0.75);
     font-size:17px;
     line-height: 24px;
 }
+.responsive_ad{display:none;}
+.responsive .responsive_ad{display: block}
+.responsive .ad{display: none}
+.responsive_ad div,.ad div{
+    margin:0 auto;
+}
 #article .article_references{
     padding-bottom:175px;
     font-size:12px;
@@ -535,6 +576,7 @@ box-shadow: 0px 0px 50px -15px rgba(0,0,0,0.75);
     font-size:22px;
     line-height:33px;
     text-align: right;
+    font-weight:bold;
     border-bottom:1px solid #666;
 }
 #article .article_social div.left{

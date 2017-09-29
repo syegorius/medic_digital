@@ -4698,8 +4698,8 @@ CREATE TABLE IF NOT EXISTS `wp_options` (
 --
 
 INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
-(1, 'siteurl', 'http://medic_digital.mdb', 'yes'),
-(2, 'home', 'http://medic_digital.mdb', 'yes'),
+(1, 'siteurl', 'http://medic-digital.lofite.com', 'yes'),
+(2, 'home', 'http://medic-digital.lofite.com', 'yes'),
 (3, 'blogname', 'Medic-Digital', 'yes'),
 (4, 'blogdescription', 'Just another WordPress site', 'yes'),
 (5, 'users_can_register', '0', 'yes'),
