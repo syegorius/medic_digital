@@ -1,13 +1,5 @@
 <!doctype html><html debug="true">
 <head>
-<script type="text/javascript" src="compatibility.js"></script>
-<!--<script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"></script>-->
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title><?php is_front_page() ? bloginfo('name') : wp_title(''); ?></title>
-<?php $get_template_directory_uri=get_template_directory_uri(); ?>
-<script type="text/javascript">var currentLang="<?php //echo ICL_LANGUAGE_CODE; ?>en",pathToImgFolder="<?php echo $get_template_directory_uri; ?>"</script>
-<?php wp_head(); ?>
 
 
 
@@ -20,21 +12,74 @@
  
 <script>
   googletag.cmd.push(function() {
-    googletag.defineSlot('/50454183/MedicDigitalMagazine/Giga540x646', [540, 646], 'div-gpt-ad-<?php echo get_option('dfp_id') ?>-0').addService(googletag.pubads());
+    /*googletag.defineSlot('/50454183/MedicDigitalMagazine/Giga540x646', [540, 646], 'div-gpt-ad-<?php echo get_option('dfp_id') ?>-0').addService(googletag.pubads());
     googletag.defineSlot('/50454183/MedicDigitalMagazine/MobileStripe320x50', [320, 50], 'div-gpt-ad-<?php echo get_option('dfp_id') ?>-1').addService(googletag.pubads());
     googletag.defineSlot('/50454183/MedicDigitalMagazine/Splash320x480', [320, 480], 'div-gpt-ad-<?php echo get_option('dfp_id') ?>-2').addService(googletag.pubads());
-    googletag.defineSlot('/50454183/MedicDigitalMagazine/Stripe160x646', [646,160], 'div-gpt-ad-<?php echo get_option('dfp_id') ?>-3').addService(googletag.pubads());
-    googletag.pubads().enableSingleRequest();
+    googletag.defineSlot('/50454183/MedicDigitalMagazine/Stripe160x646', [160,646], 'div-gpt-ad-<?php echo get_option('dfp_id') ?>-3').addService(googletag.pubads());
+    */
+	
+	//googletag.defineSlot('/50454183/MedicDigitalMagazine/Giga540x646', [646, 540], 'div-gpt-ad-1507640039462-0').addService(googletag.pubads());
+    //googletag.defineSlot('/50454183/MedicDigitalMagazine/Stripe160x646', [646, 160], 'div-gpt-ad-1507640039462-1').addService(googletag.pubads());
+    	
+	googletag.defineSlot('/50454183/MedicDigitalMagazine/Giga646x540', [646, 540], 'div-gpt-ad-<?php echo get_option('dfp_id') ?>-0').addService(googletag.pubads());
+    googletag.defineSlot('/50454183/MedicDigitalMagazine/MobileStripe320x50', [320, 50], 'div-gpt-ad-<?php echo get_option('dfp_id') ?>-1').addService(googletag.pubads());
+    googletag.defineSlot('/50454183/MedicDigitalMagazine/Splash320x480', [320, 480], 'div-gpt-ad-<?php echo get_option('dfp_id') ?>-2').addService(googletag.pubads());
+    googletag.defineSlot('/50454183/MedicDigitalMagazine/Stripe646x160', [646, 160], 'div-gpt-ad-<?php echo get_option('dfp_id') ?>-3').addService(googletag.pubads());
+   
+	
+	googletag.pubads().enableSingleRequest();
     <?php
         $title_words=preg_split("/[^\p{Hebrew}a-z]+/iu",get_the_title());
         //foreach($title_words as $word)echo "googletag.pubads().setTargeting('Magazine','".$word."');\r\n";
-        echo "googletag.pubads().setTargeting('Magazine','House');\r\n";
+        //echo "googletag.pubads().setTargeting('Magazine','test');\r\n";
+		//echo "googletag.pubads().setTargeting('Magazine',['second-post','test','post1']);\r\n";
+		echo "googletag.pubads().setTargeting('Magazine','".preg_replace("/(^[\/]+)|([\/]+$)/iu","",$_SERVER['REQUEST_URI'])."');\r\n";
     ?>
     googletag.enableServices();
+	//googletag.addService(googletag.pubads()).setTargeting('Magazine',['second-post','test','post1']);
   });
 </script>
 
+<script>
+function isMobile(){
+	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent))return true;
+	else if($(window).width()<=960)return true;
+	return false;
+}
+</script>
+<!--<script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"></script>-->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><?php is_front_page() ? bloginfo('name') : wp_title(''); ?></title>
+<?php $get_template_directory_uri=get_template_directory_uri(); ?>
+<script type="text/javascript">var currentLang="<?php //echo ICL_LANGUAGE_CODE; ?>en",pathToImgFolder="<?php echo $get_template_directory_uri; ?>"</script>
+<?php wp_head(); ?>
+
+
+
+
+
 </head>
-<body>
+<body class="responsive">
+	<div class='fx responsive_ad'><div id='div-gpt-ad-<?php echo get_option('dfp_id') ?>-1' style='height:50px; width:320px;'>
+		<script>
+		googletag.cmd.push(function() { googletag.display('div-gpt-ad-<?php echo get_option('dfp_id') ?>-1'); });
+		</script>
+	</div></div>
+	<div class='fx responsive_ad onload' id="splash"><div id='div-gpt-ad-<?php echo get_option('dfp_id') ?>-2' style='height:480px; width:320px;'>
+        <script>
+        googletag.cmd.push(function() { googletag.display('div-gpt-ad-<?php echo get_option('dfp_id') ?>-2'); });
+        </script>
+    </div></div>
+	<script>
+	if(isMobile()){
+		var splash=document.getElementById("splash");
+		splash.style.paddingTop=((window.innerHeight-480)/2)+"px";
+		splash.style.paddingBottom=((window.innerHeight-480)/2)+"px";
+	}
+	else{
+		document.getElementById("splash").innerHTML='';
+	}
+	</script>
     <div id="all" class="rel">
         

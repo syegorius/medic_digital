@@ -195,7 +195,7 @@ function setLillyVars(){
 		else $meta_query=array();
 		$loop = new WP_Query( array( 'post_type' => 'password', 'posts_per_page' => -1, 'meta_query' => $meta_query, 'orderby' => 'date', 'order' => 'DESC' ) );
 		while ( $loop->have_posts() ) : $loop->the_post();
-                        if(get_field('password')==$lilly_password&&get_field('email')==$lilly_email){
+                        if(mb_strtolower(get_field('password'))==mb_strtolower($lilly_password)&&mb_strtolower(get_field('email'))==mb_strtolower($lilly_email)){
 				$lilly_login_error='';
 				$lilly_login_form_class='inactive';
 				setcookie('lilly_password', $lilly_password, time()+86400*30, '/', $_SERVER["HTTP_HOST"]);
@@ -220,12 +220,12 @@ function get_lilly_login_error(){
 	return $lilly_login_error;
 }
 
-function get_left_side_articles($hover=""){
+function get_left_side_articles($hover="",$style=""){
     
     $articles=get_field("articles");
     
     if(is_array($articles)){
-        $html = '<div class="article_links abs">';
+        $html = '<div class="article_links abs" style="'.$style.'">';
         foreach($articles as $k=>$v){
             foreach($v as $article){
                 $article_meta=get_post_meta($article->ID);

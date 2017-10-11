@@ -1,7 +1,7 @@
 <?php
 
 setLillyVars();
-echo get_header();
+$header=get_header();
 
 $meta_query = array(
     array(
@@ -20,13 +20,15 @@ $loop = new WP_Query( array( 'post_type' => 'page', 'posts_per_page' => -1, 'met
 }*/
 while ( $loop->have_posts() ) : $loop->the_post();
     global $post;
-    //print_r($post);exit;
-    echo get_body_header();
-    $get_left_side_articles=get_left_side_articles();
+    
+    $bodyHeader=get_body_header();
+    $get_left_side_articles=get_left_side_articles('','position:absolute');
     break;
 endwhile;
 wp_reset_query();
 
+
+echo $header.$bodyHeader;
 echo get_top();
 
 /*$ids="";
@@ -76,18 +78,14 @@ function get_article(){
 
 function get_article_content(){
     $html=get_the_content();
-    $first_add_block="<!-- /50454183/MedicDigital-Mobile -->
-        <div class='ad'><div id='div-gpt-ad-".get_option('dfp_id')."-3' style=' height:160px;width:646px;'>
+    /*$first_add_block="<!-- /50454183/MedicDigital-Mobile -->
+        <div class='ad'><div id='div-gpt-ad-".get_option('dfp_id')."-3' style=' height:646px;width:160px;'>
         <script>
         googletag.cmd.push(function() { googletag.display('div-gpt-ad-".get_option('dfp_id')."-3'); });
         </script>
         </div></div>
         
-        <div class='responsive_ad'><div id='div-gpt-ad-".get_option('dfp_id')."-1' style='height:50px; width:320px;'>
-        <script>
-        googletag.cmd.push(function() { googletag.display('div-gpt-ad-".get_option('dfp_id')."-1'); });
-        </script>
-        </div></div>";
+        ";
     $second_add_block="<!-- /50454183/MedicDigital-Mobile -->
         <div class='ad'><div id='div-gpt-ad-".get_option('dfp_id')."-0' style='width:540px; height:646px;'>
         <script>
@@ -95,11 +93,26 @@ function get_article_content(){
         </script>
         </div></div>
         
-        <div class='responsive_ad'><div id='div-gpt-ad-".get_option('dfp_id')."-2' style='height:480px; width:320px;'>
+        <!--<div class='responsive_ad'><div id='div-gpt-ad-".get_option('dfp_id')."-2' style='height:480px; width:320px;'>
         <script>
         googletag.cmd.push(function() { googletag.display('div-gpt-ad-".get_option('dfp_id')."-2'); });
         </script>
+        </div></div>-->";
+		*/
+	$first_add_block="<!-- /50454183/MedicDigital-Mobile -->
+        <div class='ad'><div id='div-gpt-ad-".get_option('dfp_id')."-3' style=' height:160px;width:646px;'>
+        <script>
+        googletag.cmd.push(function() { googletag.display('div-gpt-ad-".get_option('dfp_id')."-3'); });
+        </script>
         </div></div>";
+    $second_add_block="<!-- /50454183/MedicDigital-Mobile -->
+        <div class='ad'><div id='div-gpt-ad-".get_option('dfp_id')."-0' style='height:540px; width:646px;'>
+        <script>
+        googletag.cmd.push(function() { googletag.display('div-gpt-ad-".get_option('dfp_id')."-0'); });
+        </script>
+        </div></div>";
+		
+		
     $html=preg_replace("/[\r\n]+/iu","<br />",$html);
     $html=preg_replace('/<(\w+)\b(?:\s+[\w\-.:]+(?:\s*=\s*(?:"[^"]*"|"[^"]*"|[\w\-.:]+))?)*\s*\/?>\s*<\/\1\s*>/ixsmu',"",$html);
     $html=preg_replace('/(\s*<br[^>]*>)+/iu',"<br />",$html);

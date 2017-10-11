@@ -3,6 +3,7 @@
         &copy; 2017 מולי רפואה מקוונת בע"מ - כל הזכויות שמורות
     </div>
 </div>
+
 <?php wp_footer(); ?>
 <form class="dif abs <?php echo get_lilly_login_form_class() ?>" id="warning" method="post" action="<?php echo (isset($_SERVER['HTTPS']) ? "https://" : "http://") .$_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI]; ?>">
 	<div class="w">
