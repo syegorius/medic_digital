@@ -28,6 +28,106 @@
   src: url("../css/fonts/itc-officina-serif-std-bold-italic.otf") format('truetype');
 }
 
+@font-face {
+                font-family: "OfficinaSansBook";
+                src: url("../css/fonts/OfficinaSansBook/OfficinaSansBook.eot");
+                src: url("../css/fonts/OfficinaSansBook/OfficinaSansBook.eot?#iefix")format("embedded-opentype"),
+                url("../css/fonts/OfficinaSansBook/OfficinaSansBook.woff") format("woff"),
+                url("../css/fonts/OfficinaSansBook/OfficinaSansBook.ttf") format("truetype");
+                font-style: normal;
+                font-weight: normal;
+}
+
+@font-face {
+                font-family: "OfficinaSansBookItalic";
+                src: url("../css/fonts/OfficinaSansBookItalic/OfficinaSansBookItalic.eot");
+                src: url("../css/fonts/OfficinaSansBookItalic/OfficinaSansBookItalic.eot?#iefix")format("embedded-opentype"),
+                url("../css/fonts/OfficinaSansBookItalic/OfficinaSansBookItalic.woff") format("woff"),
+                url("../css/fonts/OfficinaSansBookItalic/OfficinaSansBookItalic.ttf") format("truetype");
+                font-style: normal;
+                font-weight: normal;
+}
+
+@font-face {
+                font-family: "OfficinaSansBold";
+                src: url("../css/fonts/OfficinaSansBold/OfficinaSansBold.eot");
+                src: url("../css/fonts/OfficinaSansBold/OfficinaSansBold.eot?#iefix")format("embedded-opentype"),
+                url("../css/fonts/OfficinaSansBold/OfficinaSansBold.woff") format("woff"),
+                url("../css/fonts/OfficinaSansBold/OfficinaSansBold.ttf") format("truetype");
+                font-style: normal;
+                font-weight: normal;
+}
+
+@font-face {
+                font-family: "OfficinaSansBoldItalic";
+                src: url("../css/fonts/OfficinaSansBoldItalic/OfficinaSansBoldItalic.eot");
+                src: url("../css/fonts/OfficinaSansBoldItalic/OfficinaSansBoldItalic.eot?#iefix")format("embedded-opentype"),
+                url("../css/fonts/OfficinaSansBoldItalic/OfficinaSansBoldItalic.woff") format("woff"),
+                url("../css/fonts/OfficinaSansBoldItalic/OfficinaSansBoldItalic.ttf") format("truetype");
+                font-style: normal;
+                font-weight: normal;
+}
+
+@font-face {
+                font-family: "OfficinaSansBlack";
+                src: url("../css/fonts/OfficinaSansBlack/OfficinaSansBlack.eot");
+                src: url("../css/fonts/OfficinaSansBlack/OfficinaSansBlack.eot?#iefix")format("embedded-opentype"),
+                url("../css/fonts/OfficinaSansBlack/OfficinaSansBlack.woff") format("woff"),
+                url("../css/fonts/OfficinaSansBlack/OfficinaSansBlack.ttf") format("truetype");
+                font-style: normal;
+                font-weight: normal;
+}
+
+@font-face {
+                font-family: "OfficinaSansBlackItalic";
+                src: url("../css/fonts/OfficinaSansBlackItalic/OfficinaSansBlackItalic.eot");
+                src: url("../css/fonts/OfficinaSansBlackItalic/OfficinaSansBlackItalic.eot?#iefix")format("embedded-opentype"),
+                url("../css/fonts/OfficinaSansBlackItalic/OfficinaSansBlackItalic.woff") format("woff"),
+                url("../css/fonts/OfficinaSansBlackItalic/OfficinaSansBlackItalic.ttf") format("truetype");
+                font-style: normal;
+                font-weight: normal;
+}
+
+@font-face {
+                font-family: "OfficinaSansExtraBold";
+                src: url("../css/fonts/OfficinaSansExtraBold/OfficinaSansExtraBold.eot");
+                src: url("../css/fonts/OfficinaSansExtraBold/OfficinaSansExtraBold.eot?#iefix")format("embedded-opentype"),
+                url("../css/fonts/OfficinaSansExtraBold/OfficinaSansExtraBold.woff") format("woff"),
+                url("../css/fonts/OfficinaSansExtraBold/OfficinaSansExtraBold.ttf") format("truetype");
+                font-style: normal;
+                font-weight: normal;
+}
+
+@font-face {
+                font-family: "OfficinaSansExtraBoldItalic";
+                src: url("../css/fonts/OfficinaSansExtraBoldItalic/OfficinaSansExtraBoldItalic.eot");
+                src: url("../css/fonts/OfficinaSansExtraBoldItalic/OfficinaSansExtraBoldItalic.eot?#iefix")format("embedded-opentype"),
+                url("../css/fonts/OfficinaSansExtraBoldItalic/OfficinaSansExtraBoldItalic.woff") format("woff"),
+                url("../css/fonts/OfficinaSansExtraBoldItalic/OfficinaSansExtraBoldItalic.ttf") format("truetype");
+                font-style: normal;
+                font-weight: normal;
+}
+
+@font-face {
+                font-family: "OfficinaSansMedium";
+                src: url("../css/fonts/OfficinaSansMedium/OfficinaSansMedium.eot");
+                src: url("../css/fonts/OfficinaSansMedium/OfficinaSansMedium.eot?#iefix")format("embedded-opentype"),
+                url("../css/fonts/OfficinaSansMedium/OfficinaSansMedium.woff") format("woff"),
+                url("../css/fonts/OfficinaSansMedium/OfficinaSansMedium.ttf") format("truetype");
+                font-style: normal;
+                font-weight: normal;
+}
+
+@font-face {
+                font-family: "OfficinaSansMediumItalic";
+                src: url("../css/fonts/OfficinaSansMediumItalic/OfficinaSansMediumItalic.eot");
+                src: url("../css/fonts/OfficinaSansMediumItalic/OfficinaSansMediumItalic.eot?#iefix")format("embedded-opentype"),
+                url("../css/fonts/OfficinaSansMediumItalic/OfficinaSansMediumItalic.woff") format("woff"),
+                url("../css/fonts/OfficinaSansMediumItalic/OfficinaSansMediumItalic.ttf") format("truetype");
+                font-style: normal;
+                font-weight: normal;
+}
+
 div,p,input,textarea,img,ul,li,h1,h2,h3,h4,h5,h6,header,footer,button,html,body,span{
 	display:block;
 	margin:0px;
@@ -37,8 +137,13 @@ div,p,input,textarea,img,ul,li,h1,h2,h3,h4,h5,h6,header,footer,button,html,body,
 	border:none;
 	text-align:right;
         font-family:'Open Sans Hebrew', sans-serif;
+        direction:rtl;
 }
-#wpadminbar a, #wpadminbar span{display:inline;}
+input, input[type=submit],textarea,button{
+    -webkit-border-radius:0; 
+    border-radius:0;
+}
+#wpadminbar a, #wpadminbar span{display:inline}
 iframe{
 	border:0px;
 	border:none;
@@ -60,6 +165,19 @@ html,body{
 body,#body{
 overflow-x:hidden;
 }
+.full_size_image{
+    width:100% !important;
+    height:auto !important;
+}
+img.aligncenter{
+    margin:0 auto;
+}
+img.alignleft{
+    margin:0 auto 0 0;
+}
+img.alignright{
+    margin:0 0 0 auto;
+}
 .responsive{
 	font-size: 12px;
 }
@@ -72,7 +190,7 @@ overflow-x:hidden;
 .wrapper{
 	margin:0 auto;
 	padding:0 20px;
-	max-width:685px;
+	max-width:646px;
 	width:auto;
 }
 .rel{
@@ -169,7 +287,7 @@ box-shadow: 0px 0px 50px -15px rgba(0,0,0,0.75);
 	overflow:hidden;
 }
 .dif{
-	position:fixed;
+	/*position:fixed;*/
 	width:100%;
 	padding:125px 0 100%;
 	color:#445565;
@@ -185,14 +303,28 @@ box-shadow: 0px 0px 50px -15px rgba(0,0,0,0.75);
         border-radius: 1px;
 }
 .responsive .w{
-	width:100%;
+	margin:5%;
+	width:90%;
         border:0;
         border:none;
         border-radius:0;
 }
+.responsive #warning .w{
+	margin:0%;
+	width:100%;
+}
 .responsive .dif{
 	padding-top:0;
 }
+#mail .w{
+	width:680px;
+}
+.responsive #mail .w{
+	width:90%;
+}
+#mail .left.half{width:50%}
+#mail .right.half{width:45%}
+.responsive #mail .left.half,.responsive #mail .right.half{width:100%}
 /*.dif img{
 	margin:0 auto;
 	padding:14px 0;
@@ -204,11 +336,20 @@ box-shadow: 0px 0px 50px -15px rgba(0,0,0,0.75);
     width:100%;
     height:75px;
     background-color:#272426;
-    overflow: auto;
+    overflow: hidden;
+}
+.dif .close{
+	float:right;
+	margin:-17px -17px;
+	width:34px;
+	height:34px;
+	background-image:url('../img/close.png')
+	
 }
 .responsive .dif .login_form_logo{
     height:88px;
 }
+.login_form_logo img{margin-right:auto;}
 .caution{
         margin:0 auto;
         padding-top:25px;
@@ -225,19 +366,22 @@ box-shadow: 0px 0px 50px -15px rgba(0,0,0,0.75);
 .caution div{
     padding:5px 0;
 }
-.dif input{
+.dif input,.dif textarea,.dif button{
 	margin:12px auto 0;
-	padding:0 5px;
-        width:100%;
+	padding:0 2px;
+    width:96%;
 	max-width:280px;
 	height:55px;
 	line-height:55px;
-	font-size:23px;
+	font-size:18px;
 	color:#445565;
         text-align:center;
 	background-color:#c8c8c9;
 }
-.dif input[type=submit]{
+.dif textarea{
+	height:134px;
+}
+.dif input[type=submit],.dif button{
         padding:0;
 	width:100%;
 	max-width:290px;
@@ -265,10 +409,12 @@ box-shadow: 0px 0px 50px -15px rgba(0,0,0,0.75);
 
 /*header*/
 #header{
+    top:0;
     width:100%;
     height:75px;
     background-color:#272426;
     overflow: hidden;
+    z-index:4;
 }
 .responsive #header{
     height:auto;
@@ -288,27 +434,31 @@ box-shadow: 0px 0px 50px -15px rgba(0,0,0,0.75);
 }
 .rd .right{
     margin:-5px 0 -5px;
+	max-width:200px;
     line-height:25px;
     font-size:19px;
+}
+.responsive .rd .right{
+	max-width:100%;
 }
 .rd .left div{
     margin-top:-10px;
     font-size: 50px;
     line-height: 60px;
-    font-family:'Officina', sans-serif;
+    font-family:/*'Officina'*/'Open Sans Hebrew', sans-serif;
     font-weight:bold;
 }
 @media screen and (max-width:500px){
 	.rd .left div{font-size: 45px;}
 }
 @media screen and (max-width:450px){
-	.rd .left div{font-size: 40px;}
+	.rd .left div{font-size: 40px;line-height:56px;}
 }
 @media screen and (max-width:400px){
-	.rd .left div{font-size: 35px;}
+	.rd .left div{font-size: 35px;line-height:54px;}
 }
 @media screen and (max-width:350px){
-	.rd .left div{font-size: 30px;}
+	.rd .left div{font-size: 30px;line-height:54px;}
 }
 .rd{
     color:#030303;
@@ -334,6 +484,10 @@ box-shadow: 0px 0px 50px -15px rgba(0,0,0,0.75);
     background-position: center center;
     cursor:pointer;
 }
+.menu.closed{
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
 .responsive .menu{
     width:50px;
     height:50px;
@@ -343,7 +497,9 @@ box-shadow: 0px 0px 50px -15px rgba(0,0,0,0.75);
     background-color: #fff;
 }
 .az_logo{
-    height:49px;
+	margin:5px;
+	width:162px;
+    height:40px;
     overflow:hidden;
 }
 .az_title{
@@ -358,6 +514,9 @@ box-shadow: 0px 0px 50px -15px rgba(0,0,0,0.75);
 .responsive .az{
     max-width:172px;
 }
+.responsive .az_logo{
+    max-width:166px;
+}
 /*header*/
 
 /*top*/
@@ -365,6 +524,7 @@ box-shadow: 0px 0px 50px -15px rgba(0,0,0,0.75);
     width:100%;
     height:693px;
     overflow:hidden;
+	background-color:#ebebeb;
 }
 .responsive #top{
     height:394px;
@@ -383,6 +543,7 @@ box-shadow: 0px 0px 50px -15px rgba(0,0,0,0.75);
 .page_details .page_title, .page_details .page_reference{
     text-align: center;
 }
+.page_title a{color:#fff}
 .responsive .page_details{
     padding:0 30px 19px;
     font-size:21px;
@@ -403,21 +564,24 @@ box-shadow: 0px 0px 50px -15px rgba(0,0,0,0.75);
     margin-bottom:14px;
     font-size:15px;
 }
-.article_links{
+.article_links,.article_links_static{
     top:75px;
     left:auto;
     right:0;
     padding-bottom:14px;
     width:257px;
     height:auto;
-    max-height:693px;
+    /*max-height:693px;*/
     color:#010101;
     background-color:#ebebeb;
+	z-index:3;
+        overflow-y:auto;
 }
-.responsive .article_links{
+.responsive .article_links,.responsive .article_links_static{
     top:48px;
     width:100%;
     height:auto;
+    overflow:visible;
 }
 .article_link{
     padding:18px 15px 12px 15px;
@@ -433,11 +597,16 @@ box-shadow: 0px 0px 50px -15px rgba(0,0,0,0.75);
 .article_link a{
     color:#010101;
 }
-.article_link:hover{
+.article_link:hover, .article_link.hover{
     background-image:url("../img/prev.png");
     background-position:center left;
     background-repeat:no-repeat;
     background-color: #cbcbcb;
+    background-position: 3px;
+}
+.responsive .article_link:hover, .responsive  .article_link.hover{
+    background-image:none;
+	background-color:#ebebeb;
 }
 .article_link div.red_bg{
     margin: 1px 0 1px 6px;
@@ -465,6 +634,7 @@ box-shadow: 0px 0px 50px -15px rgba(0,0,0,0.75);
 
 /*footer*/
 #footer{
+	position:relative;
     padding:8px 0 8px;
     width:100%;
     height:43px;
@@ -473,13 +643,14 @@ box-shadow: 0px 0px 50px -15px rgba(0,0,0,0.75);
     font-size: 12px;
     line-height: 15px;
     background-color: #272426;
+	z-index:4;
 }
 #footer img{
     margin:0 auto 5px;
 }
-.responsive #footer{
+/*.responsive #footer{
 	margin-bottom:50px;
-}
+}*/
 .responsive_ad.fx{
 	bottom:0;
 	top:auto;
@@ -500,9 +671,13 @@ box-shadow: 0px 0px 50px -15px rgba(0,0,0,0.75);
 
 /*article*/
 #article{
-    margin-top:-345px;
+    margin-top:-575px;
     background-color:#fff;
     z-index:2;
+}
+#article h2,#article h1,#article h3,#article h4{
+	color:#d2232a;
+	/*font-weight:900;*/
 }
 .responsive #article{
     margin-top:0 !important;
@@ -549,7 +724,31 @@ box-shadow: 0px 0px 50px -15px rgba(0,0,0,0.75);
 }
 #article .a_ad_s .article_social{
     padding:8px 5px;
-    width:184px;
+    width:134px;
+}
+.article_social .print{
+	background-image:url('../img/print.png');
+}
+.article_social .print:hover{
+	background-image:url('../img/print_hover.png');
+}
+.article_social .email{
+	background-image:url('../img/email.png');
+}
+.article_social .email:hover{
+	background-image:url('../img/email_hover.png');
+}
+.article_social .call{
+	background-image:url('../img/call.png');
+}
+.article_social .call:hover{
+	background-image:url('../img/call_hover.png');
+}
+.article_social .fb{
+	background-image:url('../img/fb.png');
+}
+.article_social .fb:hover{
+	background-image:url('../img/fb_hover.png');
 }
 .responsive #article .a_ad_s .right, .responsive #article .a_ad_s .article_social{
     width:100%;
@@ -571,6 +770,9 @@ box-shadow: 0px 0px 50px -15px rgba(0,0,0,0.75);
     font-size:18px;
     line-height: 25px;
 }
+#article .article_content iframe{
+	width:100% !important;
+}
 .responsive #article .article_content{
     color:#020202;
     font-size:17px;
@@ -590,6 +792,7 @@ box-shadow: 0px 0px 50px -15px rgba(0,0,0,0.75);
 #article .article_references div{
     padding-bottom:10px;
     text-align:left;
+    direction:ltr;
 }
 #article div.article_references_title{
     margin:60px 0 20px;
@@ -617,5 +820,8 @@ box-shadow: 0px 0px 50px -15px rgba(0,0,0,0.75);
     display: block;
     height:28px;
     width:28px;
+}
+#wpadminbar{
+	position:fixed !important;
 }
 /*article*/

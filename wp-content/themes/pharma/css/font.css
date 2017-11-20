@@ -1,0 +1,20 @@
+@import url(http://fonts.googleapis.com/earlyaccess/opensanshebrew.css);
+
+@font-face {
+  font-family: 'AlefReg';
+  font-style: normal;
+  font-weight: 300;
+  src: url("../css/fonts/alef/Alef-Regular.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: 'AlefBold';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../css/fonts/alef/Alef-Bold.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Condensed';
+    src: url("../css/fonts/open-sans-condensed/OpenSans-CondBold.ttf");
+}

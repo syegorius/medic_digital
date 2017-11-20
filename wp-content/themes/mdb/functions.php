@@ -4,6 +4,7 @@ load_theme_textdomain("pharma");
 include "wpml-integration.php";
 include "langs.php";
 include "menu-customizer.php";
+include "recaptchalib.php";
 
 /*include "src/Base.php";
 include "src/Html.php";
@@ -113,10 +114,12 @@ function file_to_download(){
 }
 
 function my_posts_where( $where ) {
-	
-	$where = str_replace("meta_key = 'master_pages_%", "meta_key LIKE 'master_pages_%", $where);
-        $where = str_replace("meta_key = 'articles_%", "meta_key LIKE 'articles_%", $where);
-
+	//echo "\r\n------".$where."\r\n";
+	//$where = str_replace("meta_key = 'master_pages_%", "meta_key LIKE 'master_pages_%", $where);
+    //$where = str_replace("meta_key = 'articles_%", "meta_key LIKE 'articles_%", $where);
+	$where = preg_replace("/meta_key = 'articles_.*?_/iu", "meta_key LIKE 'articles_%_", $where);
+	$where = preg_replace("/meta_key = 'masters_.*?_/iu", "meta_key LIKE 'masters_%_", $where);
+	//echo "++++++".$where."\r\n";
 	return $where;
 }
 
@@ -167,8 +170,9 @@ function getFromUrl($url, $post = '', $loop = 0){
 	return $full;
 }
 
-$lilly_login_error='הסיסמה אינה נכונה, אנא פנה לנציג לילי לקבלת סיסמה חדשה';
+$lilly_login_error=' הסיסמה אינה נכונה, אנא פנה לנציג מדיק לתמיכה';
 $lilly_login_form_class='active';
+$result_activity='inactive';
 
 function setLillyVars(){
 	global $lilly_login_error;
@@ -176,26 +180,29 @@ function setLillyVars(){
 	//echo $_SERVER[HTTP_HOST].$_SERVER[REQUEST_URI];exit;
 	$lilly_password=isset($_REQUEST['lilly_password'])?$_REQUEST['lilly_password']:(isset($_COOKIE['lilly_password'])?$_COOKIE['lilly_password']:'');
         $lilly_email=isset($_REQUEST['lilly_email'])?$_REQUEST['lilly_email']:(isset($_COOKIE['lilly_email'])?$_COOKIE['lilly_email']:'');
-
-	if($lilly_password&&$lilly_email){
+	
+	if(isset($_REQUEST['preview'])&&$_REQUEST['preview']){
+	    $lilly_login_form_class='inactive';
+	}
+	else if($lilly_password&&$lilly_email){
 		if(isset($page_id)&&$page_id&&$page_id>0){
 			$meta_query = array(
 				array(
 					'key'=> 'password',
 					'value' => $lilly_password,
 					'compare' => '='
-				),
+				)/*,
                                 array(
 					'key'=> 'email',
 					'value' => $lilly_email,
 					'compare' => '='
-				)
+				)*/
 			);
 		}
 		else $meta_query=array();
 		$loop = new WP_Query( array( 'post_type' => 'password', 'posts_per_page' => -1, 'meta_query' => $meta_query, 'orderby' => 'date', 'order' => 'DESC' ) );
 		while ( $loop->have_posts() ) : $loop->the_post();
-                        if(mb_strtolower(get_field('password'))==mb_strtolower($lilly_password)&&mb_strtolower(get_field('email'))==mb_strtolower($lilly_email)){
+                        if(mb_strtolower(get_field('password'))==mb_strtolower($lilly_password)/*&&mb_strtolower(get_field('email'))==mb_strtolower($lilly_email)*/){
 				$lilly_login_error='';
 				$lilly_login_form_class='inactive';
 				setcookie('lilly_password', $lilly_password, time()+86400*30, '/', $_SERVER["HTTP_HOST"]);
@@ -215,24 +222,29 @@ function get_lilly_login_form_class(){
 	return $lilly_login_form_class;
 }
 
+function get_result_activity(){
+	global $result_activity;
+	return $result_activity;
+}
+
 function get_lilly_login_error(){
 	global $lilly_login_error;
 	return $lilly_login_error;
 }
 
-function get_left_side_articles($hover="",$style=""){
+function get_left_side_articles($hover="",$style="",$suffix=""){
     
     $articles=get_field("articles");
     
     if(is_array($articles)){
-        $html = '<div class="article_links abs" style="'.$style.'">';
+        $html = '<div class="article_links'.$suffix.' fx" style="/*'.$style.'*/">';
         foreach($articles as $k=>$v){
             foreach($v as $article){
                 $article_meta=get_post_meta($article->ID);
                 $image=wp_get_attachment_metadata( $article_meta['image'][0] );
                 $uf=wp_upload_dir();
-                //var_dump($article);exit;
-                $html.='<div class="article_link '.$hover.'">
+                
+                $html.='<div class="article_link '.$hover.' pointer" onclick="document.location.href=\''.get_post_permalink($article->ID).'\'">
                         <div>
                             <div class="red_bg right">'.$article_meta['reference'][0].'</div><a href="'.get_post_permalink($article->ID).'">'.$article->post_title.'</a>
                             <div class="clear"></div>
@@ -250,7 +262,7 @@ function get_left_side_articles($hover="",$style=""){
 }
 
 function get_left_side_articles_($page_ids=false){
-    $html = '<div class="article_links abs">';
+    $html = '<div class="article_links fx">';
     
     if($page_ids){
         $meta_query = array(
@@ -334,26 +346,101 @@ function post_medic_settings(){
 
 function get_body_header(){
     $sbl=get_field('spansored_by_logo');
-    return '<div id="header">
+    return '<div id="header" class="fx">
             <div class="logo left">
-                <a href="/"><img src="'.get_template_directory_uri().'/img/logo_sm.png" title="" alt="" /></a>
+                <a href="'.get_the_permalink().'"><img src="'.get_template_directory_uri().'/img/logo_sm.png" title="" alt="" /></a>
             </div>
 
 
             <div class="right menu" onclick="showHideArticleLinks()">
 
-            </div>
+            </div>'.($sbl['url']?'
             <div class="right az">
-                <div class="az_title">בשיתוף חברת</div>
+                <div class="az_title">'.get_field('sponsored_by_text').'</div>
                 <div class="az_logo"><img src="'.$sbl['url'].'" class="imargin" title="" alt="" /></div>
-            </div>
+            </div>':'').'
             <div class="rd left">
                 <div class="left red">
                     <!--<img src="'.get_template_directory_uri().'/img/rd.png" title="" alt="" />-->
-                    <div><a class="red" href="'. get_the_permalink().'">'.get_the_title().'</a></div>
+                    <div><a class="red" href="'.get_the_permalink().'" style="'.(preg_match("/^[a-z0-9\s]+?$/iu",get_the_title())?'font-family:\'OfficinaSansBold\', sans-serif;letter-spacing:-2px;':'').'">'.get_the_title().'</a></div>
                 </div>
                 <div class="right">'.get_the_content().'</div>
                 <div class="clear"></div>
             </div>
         </div>';
+}
+
+function sendMail(){
+	global $result_activity;
+	
+	if(checkCapcha()){
+	
+		$to=isset($_REQUEST['sent_to'])?$_REQUEST['sent_to']:"";
+		$from=isset($_REQUEST['sent_from'])?$_REQUEST['sent_from']:"";
+		$name=isset($_REQUEST['visitor_name'])?$_REQUEST['visitor_name']:"";
+		$message=isset($_REQUEST['message'])?$_REQUEST['message']:"";
+		if(!$message||!$to)return;
+		else{
+			if($name)$message=$name." (".$from.") has sent you this message:\r\n ".$message;
+			if(mail($to,"Mail From Medic-Digital Visitor",$message))$result_activity="";
+		}
+	}
+}
+
+function checkCapcha(){
+	
+	$secret = "6LdpyTUUAAAAAIVApccEJulFxO7is7dD_ryqt65K";
+	$response = null;
+	$reCaptcha = new ReCaptcha($secret);
+	
+	if($_REQUEST["g-recaptcha-response"])$response=$reCaptcha->verifyResponse($_SERVER["REMOTE_ADDR"],$_REQUEST["g-recaptcha-response"]);
+	if($response != null && $response->success)return true;
+}
+
+function get_banners(){
+	global $banners;
+	$banners=array();
+	$meta_query = array(
+		array(
+			'key' => 'masters_%_master', // this should be the first sub-field
+			'value' => get_the_ID(),
+			'compare' => '='
+		)
+	);
+	$loop = new WP_Query( array( 'post_type' => 'any', 'posts_per_page' => -1, 'meta_query' => $meta_query, 'orderby' => 'date', 'order' => 'DESC' ) );
+	while ( $loop->have_posts() ) : $loop->the_post();
+		$show_giga_banner=get_field("show_as_giga_banner");
+		$show_stripe_banner=get_field("show_as_stripe_banner");
+		$show_splash_banner=get_field("show_as_splash_banner");
+		$show_mobile_banner=get_field("show_as_mobile_banner");
+		$position="error";
+		if(isset($show_giga_banner[0])){
+			$position='giga';
+			if(get_field('link'))$banners[$position]['link']=get_field('link');
+			$i=get_field('image');
+			$banners[$position]['img']=$i['url'];
+		}
+		if(isset($show_stripe_banner[0])){
+			$position='stripe';
+			if(get_field('link'))$banners[$position]['link']=get_field('link');
+			$i=get_field('image');
+			$banners[$position]['img']=$i['url'];
+		}
+		if(isset($show_splash_banner[0])){
+			$position='splash';
+			if(get_field('link'))$banners[$position]['link']=get_field('link');
+			$i=get_field('image');
+			$banners[$position]['img']=$i['url'];
+		}
+		if(isset($show_mobile_banner[0])){
+			$position='mobile';
+			if(get_field('link'))$banners[$position]['link']=get_field('link');
+			$i=get_field('image');
+			$banners[$position]['img']=$i['url'];
+		}
+		
+		
+		
+	endwhile;
+	wp_reset_query();
 }

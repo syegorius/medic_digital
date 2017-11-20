@@ -1,0 +1,7 @@
+.posts_block .second_third_fourth_and_fifth_post{
+	margin-right:-50px;
+	width:49.9%;
+}
+.second_third_fourth_and_fifth_post .second_and_third_post, .second_third_fourth_and_fifth_post .fourth_and_fifth_post {
+	margin: 0;
+}

@@ -1,0 +1,181 @@
+div,p,input,textarea,img,ul,li,h1,h2,h3,h4,h5,h6,header,footer,button,html,body{
+	text-align:right;
+	direction:rtl;
+}
+
+.rtl-align-left{
+	text-align:right;
+	direction:rtl;
+}
+
+.rtl-float-left{
+	float:right;
+}
+
+.rtl-align-right{
+	text-align:left;
+	direction:rtl;
+}
+
+.rtl-float-right{
+	float:left;
+}
+
+.lang_wrapper{
+	padding:0 0 0 42px;
+}
+
+.menu-header-menu-container ul li.menu-item,.menu-header-menu-he-container ul li.menu-item{
+	float:right;
+}
+
+.lang_wrapper.responsive #lang_sel_list li{
+	float:left;
+}
+
+.lang_wrapper.responsive #lang_sel_list li a{
+	padding:0 0 0 41px;
+	
+}
+
+#lang_sel ul li a.lang_sel_sel,#lang_sel ul li a{
+	text-align:left;
+	background-image:url("../img/circle_he.png");
+	background-position: left center;
+    background-repeat: no-repeat;
+}
+
+#lang_sel_list li a,#lang_sel_list li a:visited{
+	padding:0 0 0 41px;
+	text-align:left;
+	background-image:url("../img/circle_en.png");
+	background-position: left center;
+    background-repeat: no-repeat;
+}
+
+.responsive_body #lang_sel_list li a, .responsive_body #lang_sel_list li a:visited {
+	padding:0 0 0 51px;
+}
+
+#lang_sel ul li.icl-en a{
+	background-image:url("../img/circle_en.png");
+	background-position: left center;
+    background-repeat: no-repeat;
+}
+
+.responsive #lang_sel li a{
+	margin-right:-120px;
+}
+
+.responsive #lang_sel li.clicked, .responsive #lang_sel li.clicked li{
+	width:30px;
+	overflow:visible;
+}
+
+/*#footer .footer_logo_wrapper{
+	margin:13px 24px 0 0;
+}*/
+
+.company,.conference{
+	margin-left:4.6%;
+	margin-right:0px;
+}
+
+.company_logo img{
+	float:right;
+}
+
+.fourth_and_fifth_post{
+	margin-right:0;
+	margin-left:-27px;
+}
+
+.first_post .post_picture{
+	right:0;
+	left:auto;
+}
+
+.overview_content ul{
+	margin-left:0px;
+	margin-right:26px;
+}
+
+.overview_icons{
+	margin-right:29px;
+	margin-left:0;
+}
+
+.gallery_wrapper .all{
+	float:right;
+}
+
+.personnel_detail .round_image{
+	float:right;
+}
+
+.personnel_detail .personnel_text_block{
+	float:right;
+	margin-left:0px;
+	/*margin-right:90px;*/
+        margin-right:7%;
+}
+
+.personnel_detail .personnel_name{
+	text-align:right;
+}
+
+.personnel_detail .personnel_motto{
+	text-align:right;
+}
+
+.personnel_detail .personnel_content,.personnel_detail .personnel_content.inactive{
+	text-align:right;
+}
+
+/*.homepage_company{
+	margin-left:20px;
+}*/
+
+.first_post .post_text_block{
+	left:auto;
+	right:0;
+	background:url("../img/first_post_text_block_right.png") repeat-y;
+	background-position:right;
+}
+
+.post_type_name{
+	padding-left:0;
+	padding-right:50px;
+	background-position:right;
+}
+
+.second_post .post_text_block, .third_post .post_text_block, .fourth_post .post_text_block, .fifth_post .post_text_block{
+	left:auto;
+	right:0;
+}
+
+.submenu_img_name{
+	left:auto;
+	right:0;
+}
+
+.responsive_footer_menu_wrapper li{
+	float:right;
+}
+
+.guideline .guideline_name{
+	text-align:right;
+}
+
+.submenu_img_wrapper{
+	margin-left:0;
+	margin-right:2.4%;
+}
+
+.backwards.gallery_wrapper .all{
+	float:left;
+}
+
+.backwards .rtl-float-left{
+	float:left;
+}
